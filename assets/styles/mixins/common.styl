@@ -1,0 +1,26 @@
+font(name, path, weight, style)
+  @font-face
+    font-family name
+    font-weight weight
+    font-style style
+    src url(path + name + '.eot')
+    src local('∂ƒ√'),
+         url(path + '.eot#iefix') format('embedded-opentype'),
+         url(path + '.woff') format('woff'),
+         url(path + '.ttf') format('truetype'),
+         url(path + '.svg#webfont') format('svg')
+
+clearfix()
+  &:after
+    display block
+    content ''
+    clear both
+
+no-selection()
+    user-select none
+
+hide()
+  display none
+
+show()
+  display block

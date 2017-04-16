@@ -3,9 +3,15 @@ html(lang="en")
 head
   meta(charset="UTF-8")
   meta(name="viewport" content="width=device-width, initial-scale=1")
+  meta(description="Yandex timetable development.")
   title Timetable application
   include common/styles.jade
 body
-  include ../media/images/sprites/vector.svg
-  include modules/module-1.jade
+  .vector-symbols
+    include ../media/images/sprites/vector.svg
+
+  #root-app
+    include modules/module-1.jade
+
+
   include common/scripts.jade

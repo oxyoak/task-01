@@ -1,0 +1,19 @@
+min-supported()
+  +less-than(320px)
+    {block}
+
+small()
+  +less-than(768px)
+    {block}
+
+medium()
+  +less-than(992px)
+    {block}
+
+large()
+  +less-than(1200px)
+    {block}
+
+less-than(w)
+  @media (max-width: w)
+    {block}
