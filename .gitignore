@@ -1,4 +1,5 @@
 #"temporary" OSX files
+.DS_Store
 /.DS_Store
 */.DS_Store
 
