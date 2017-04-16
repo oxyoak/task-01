@@ -137,7 +137,7 @@
   });
 
 
-  gulp.task('dev:scripts', () => {
+  gulp.task('dev:scripts', done => {
     return gulp
               .src([assets.scripts.libs, assets.scripts.src + '*.js', assets.scripts.src + '*.jsx'])
               .pipe(sourcemaps.init())
