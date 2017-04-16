@@ -1,0 +1,8 @@
+# "temporary" build files
+build/
+
+# npm packages
+node_modules/
+
+# bower packages
+bower_components/

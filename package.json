@@ -1,0 +1,41 @@
+{
+  "name": "ids-1",
+  "version": "0.0.1",
+  "description": "Interface Development School. Task #1.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/oxyoak/task-01.git"
+  },
+  "keywords": [
+    "ya",
+    "yandex",
+    "interface",
+    "development",
+    "school",
+    "timetable"
+  ],
+  "author": "oxyoak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oxyoak/task-01/issues"
+  },
+  "homepage": "https://github.com/oxyoak/task-01#readme",
+  "devDependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-connect": "^5.0.0",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-react": "^3.1.0",
+    "gulp-stylus": "^2.6.0",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-svgstore": "^6.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-util": "^3.0.8"
+  }
+}
