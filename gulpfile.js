@@ -97,28 +97,43 @@
   /*=====================================================
   =            DEVELOPMENT ENVIRONMENT TASKS            =
   =====================================================*/
-  gulp.task('dev:templates', () => {
+  gulp.task('dev:templates', done => {
     return gulp
               .src(assets.templates + 'index.jade')
               .pipe(sourcemaps.init())
               .pipe(jade({
                 pretty: true
               }))
+              .on('error', err => {
+                gutil.log(gutil.colors.red(err));
+                done();
+              })
               .pipe(sourcemaps.write())
               .pipe(gulp.dest(app.root))
               .pipe(connect.reload());
   });
 
 
-  gulp.task('dev:styles', () => {
+  gulp.task('dev:styles', done => {
     return gulp
-              .src([assets.styles.libs, assets.styles.src + '*.styl'])
+              .src(assets.styles.src + '*.styl')
               .pipe(sourcemaps.init())
               .pipe(stylus())
+              .on('error', err => {
+                gutil.log(gutil.colors.red(err));
+                done();
+              })
               .pipe(autoprefixer())
               .pipe(sourcemaps.write())
               .pipe(gulp.dest(app.styles))
               .pipe(connect.reload());
+  });
+
+
+  gulp.task('dev:styles-libs', () => {
+    return gulp
+              .src(assets.styles.libs)
+              .pipe(gulp.dest(app.styles));
   });
 
 
@@ -127,6 +142,10 @@
               .src([assets.scripts.libs, assets.scripts.src + '*.js', assets.scripts.src + '*.jsx'])
               .pipe(sourcemaps.init())
               .pipe(react())
+              .on('error', err => {
+                gutil.log(gutil.colors.red(err));
+                done();
+              })
               .pipe(sourcemaps.write())
               .pipe(gulp.dest(app.scripts))
               .pipe(connect.reload());
@@ -288,7 +307,7 @@
 
 
 
-  gulp.task('build:dev', gulp.series('clean:all', 'dev:templates', 'dev:styles', 'dev:scripts', 'dev:media'));
+  gulp.task('build:dev', gulp.series('clean:all', 'dev:templates', 'dev:styles', 'dev:styles-libs', 'dev:scripts', 'dev:media'));
   gulp.task('build:prod', gulp.series('clean:all', gulp.parallel('prod:templates', 'prod:styles', 'prod:scripts', 'prod:media')));
 
 
@@ -302,7 +321,7 @@
 
 
   gulp.task('watch:styles', () => {
-    gulp.watch(assets.styles.src + '**/*.styl', gulp.series('clean:styles', 'dev:styles'));
+    gulp.watch(assets.styles.src + '**/*.styl', gulp.series('clean:styles', 'dev:styles', 'dev:styles-libs'));
   });
 
 
