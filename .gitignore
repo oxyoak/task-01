@@ -1,3 +1,7 @@
+#"temporary" OSX files
+/.DS_Store
+*/.DS_Store
+
 # "temporary" build files
 build/
 
