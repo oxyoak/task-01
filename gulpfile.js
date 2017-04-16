@@ -5,7 +5,6 @@
       gutil = require('gulp-util'),
       clean = require('gulp-clean'),
       babel = require('gulp-babel'),
-      react = require('gulp-react'),
       uglify = require('gulp-uglify'),
       stylus = require('gulp-stylus'),
       svgmin = require('gulp-svgmin'),
@@ -141,7 +140,7 @@
     return gulp
               .src([assets.scripts.libs, assets.scripts.src + '*.js', assets.scripts.src + '*.jsx'])
               .pipe(sourcemaps.init())
-              .pipe(react())
+              .pipe(babel())
               .on('error', err => {
                 gutil.log(gutil.colors.red(err));
                 done();
